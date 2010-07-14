@@ -96,7 +96,13 @@ if !exists(":DiffOrig")
 endif
 
 map <F5> :set hls!<bar>set hls?<CR>
-map <F3> :FufFile **/<CR> 
+
+" fuzzy search for files and buffers
+map <leader>f :FufFile **/<CR>
+map <leader>b :FufBuffer **/<CR>
+
+" open file under cursor in vertical window, not horizontal
+map <C-w>f :vsplit<CR> <C-w>w gf<CR>
 
 set number
 
@@ -124,7 +130,7 @@ map ,p runpy<C-M>
 " Debug compiled program
       map dbg :!gdb ./%<
       map ,d dbg<C-M>
-      
+
 " Jump to the next compile error (type 'cn' in command mode)
       map cn :cn<C-M>
 " Jump to the previous compile error ('cp')
