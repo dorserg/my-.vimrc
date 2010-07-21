@@ -170,3 +170,5 @@ vnoremap <silent> # :<C-U>
 nmap <leader>tn :tabnew<CR>
 nmap <leader>td :tabclose<CR>
 
+map Y y$
+
