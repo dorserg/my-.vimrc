@@ -128,8 +128,8 @@ map ,p runpy<C-M>
       map ,r ,c<C-M>run<C-M>
 
 " Debug compiled program
-      map dbg :!gdb ./%<
-      map ,d dbg<C-M>
+      map c_debug :!gdb ./%<
+      map ,d c_debug<C-M>
 
 " Jump to the next compile error (type 'cn' in command mode)
       map cn :cn<C-M>
@@ -166,4 +166,7 @@ vnoremap <silent> # :<C-U>
   \gvy?<C-R><C-R>=substitute(
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+nmap <leader>tn :tabnew<CR>
+nmap <leader>td :tabclose<CR>
 
