@@ -172,3 +172,7 @@ nmap <leader>td :tabclose<CR>
 
 map Y y$
 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
