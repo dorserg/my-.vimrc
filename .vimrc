@@ -176,3 +176,5 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+cmap W w !sudo tee % > /dev/null
+
