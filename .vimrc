@@ -98,8 +98,8 @@ endif
 map <F5> :set hls!<bar>set hls?<CR>
 
 " fuzzy search for files and buffers
-map <leader>f :FufFile **/<CR>
-map <leader>b :FufBuffer **/<CR>
+map <leader>f :FufFileWithCurrentBufferDir **/<CR>
+map <leader>b :FufBuffer<CR>
 
 " open file under cursor in vertical window, not horizontal
 map <C-w>f :vsplit<CR> <C-w>w gf<CR>
@@ -176,5 +176,5 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-cmap W w !sudo tee % > /dev/null
+noremap :W :w !sudo tee % > /dev/null
 
