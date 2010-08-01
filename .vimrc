@@ -125,7 +125,8 @@ map ,p runpy<C-M>
 
 " Run compiled program (type 'run' or ,r in command mode)
       map run :!./%<
-      map ,r ,c<C-M>run<C-M>
+      map ,r run<C-M>
+      map ,R ,c<C-M>run<C-M>
 
 " Debug compiled program
       map c_debug :!gdb ./%<
@@ -177,4 +178,8 @@ set shiftwidth=4
 set expandtab
 
 noremap :W :w !sudo tee % > /dev/null
+
+" don't save buffers on switching
+" saving is quite nasty, e.g. you lose all undo ring
+set hidden
 
