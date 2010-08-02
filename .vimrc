@@ -95,6 +95,8 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+let mapleader = ","
+
 map <F5> :set hls!<bar>set hls?<CR>
 
 " fuzzy search for files and buffers
@@ -111,7 +113,7 @@ set nobackup
 set nowrap
 
 map runpy :!python -i %\
-map ,p runpy<C-M>
+map <leader>p runpy<C-M>
 
 " ====================================================================
 " The following functions and key mappings allow for compiling
@@ -121,16 +123,16 @@ map ,p runpy<C-M>
 " Compile current program (type 'comp' or ,c in command mode)
 " This mapping calls the MakeCpp() function defined below.
       map comp :call MakeCpp()
-      map ,c :w<C-M>comp<C-M>
+      map <leader>c :w<C-M>comp<C-M>
 
 " Run compiled program (type 'run' or ,r in command mode)
       map run :!./%<
-      map ,r run<C-M>
-      map ,R ,c<C-M>run<C-M>
+      map <leader>r run<C-M>
+      map <leader>R ,c<C-M>run<C-M>
 
 " Debug compiled program
       map c_debug :!gdb ./%<
-      map ,d c_debug<C-M>
+      map <leader>d c_debug<C-M>
 
 " Jump to the next compile error (type 'cn' in command mode)
       map cn :cn<C-M>
