@@ -185,3 +185,15 @@ noremap :W :w !sudo tee % > /dev/null
 " saving is quite nasty, e.g. you lose all undo ring
 set hidden
 
+nmap gb :!git blame %<CR>
+
+" automatically reload .vimrc when changing
+autocmd! bufwritepost ~/.vimrc source %
+
+nmap gs :Sex<CR>
+
+nmap <leader>yw "zyiw
+nmap <leader>cw viw"zp
+
+set laststatus=2
+
