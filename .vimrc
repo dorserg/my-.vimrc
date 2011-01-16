@@ -113,7 +113,7 @@ set nobackup
 set nowrap
 
 map runpy :!python -i %\
-map <leader>p runpy<C-M>
+map <leader>p :w<C-M>runpy<C-M>
 
 " ====================================================================
 " The following functions and key mappings allow for compiling
@@ -192,8 +192,9 @@ autocmd! bufwritepost ~/.vimrc source %
 
 nmap gs :Sex<CR>
 
-nmap <leader>yw "zyiw
-nmap <leader>cw viw"zp
+" for when you want to replace with one specific word in different places
+nmap [y "zyiw
+nmap [c viw"zp
 
 set laststatus=2
 
