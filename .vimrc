@@ -18,6 +18,10 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" pathogen: simple package manager
+" all plugins are in separate folders under ~/.vim/bundle
+call pathogen#runtime_append_all_bundles()
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -112,8 +116,8 @@ set noswapfile
 set nobackup
 set nowrap
 
-map runpy :!python -i %\
-map <leader>p :w<C-M>runpy<C-M>
+map <leader>p :w<C-M>:!python %<C-M>
+map <leader>P :w<C-M>:!python -i %<C-M>
 
 " ====================================================================
 " The following functions and key mappings allow for compiling
@@ -128,7 +132,7 @@ map <leader>p :w<C-M>runpy<C-M>
 " Run compiled program (type 'run' or ,r in command mode)
       map run :!./%<
       map <leader>r run<C-M>
-      map <leader>R ,c<C-M>run<C-M>
+      map <leader>R <leader>c<C-M>run<C-M>
 
 " Debug compiled program
       map c_debug :!gdb ./%<
@@ -193,8 +197,31 @@ autocmd! bufwritepost ~/.vimrc source %
 nmap gs :Sex<CR>
 
 " for when you want to replace with one specific word in different places
-nmap [y "zyiw
-nmap [c viw"zp
+nmap [c "_ciw<C-R>"<ESC>
 
 set laststatus=2
+
+set tags=tags;/
+
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+
+let Tlist_Show_One_File = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Compact_Format = 1
+
+nmap [to :TlistOpen<C-M>
+nmap [tt :TlistToggle<C-M>
+
+nmap <leader>m :make<C-M>
+nmap <leader>w :w<C-M>
+
+augroup java_autocommands
+    au!
+    au BufEnter *.java setl makeprg=ant\ -find
+    au BufEnter *.java setl efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+augroup END
 
