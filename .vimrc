@@ -196,8 +196,9 @@ autocmd! bufwritepost ~/.vimrc source %
 
 nmap gs :Sex<CR>
 
-" for when you want to replace with one specific word in different places
+" replace without overwriting default register
 nmap [c "_ciw<C-R>"<ESC>
+vmap [c "_c<C-R>"<ESC>
 
 set laststatus=2
 
