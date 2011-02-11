@@ -20,6 +20,8 @@ set nocompatible
 
 " pathogen: simple package manager
 " all plugins are in separate folders under ~/.vim/bundle
+filetype off
+call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 " allow backspacing over everything in insert mode
@@ -99,6 +101,9 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+set wildmode=full
+set wildmenu
+
 let mapleader = ","
 
 map <F5> :set hls!<bar>set hls?<CR>
@@ -161,6 +166,19 @@ set guioptions-=m " turn off menu bar
 set guioptions-=T " turn off toolbar
 
 runtime! ftplugin/man.vim
+
+" autoload cscope database
+function! LoadCscope()
+    let db = findfile("cscope.out", ".;")
+    if (!empty(db))
+        let path = strpart(db, 0, match(db, "/cscope.out$"))
+        set nocsverb " suppress 'duplicate connection' error
+        exe "cs add " . db . " " . path
+        set csverb   " switch back to verbose mode
+    endif
+endfunction
+
+au BufEnter /* call LoadCscope()
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
