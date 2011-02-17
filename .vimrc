@@ -244,3 +244,6 @@ augroup java_autocommands
     au BufEnter *.java setl efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,\%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 augroup END
 
+" always pass 'g' flag to :s command
+set gdefault
+
