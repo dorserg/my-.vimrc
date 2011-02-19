@@ -109,7 +109,15 @@ let mapleader = ","
 map <F5> :set hls!<bar>set hls?<CR>
 
 " fuzzy search for files and buffers
-map <leader>f :FufFileWithCurrentBufferDir **/<CR>
+function! SmartFufFile()
+    let path = fnamemodify(bufname("%"), ":p:~:h")
+    if (path == "~")
+        echo "no way, it's home directory"
+        return
+    endif
+    exe "FufFileWithCurrentBufferDir **/"
+endfunction
+map <leader>f :call SmartFufFile()<CR>
 map <leader>b :FufBuffer<CR>
 
 " open file under cursor in vertical window, not horizontal
