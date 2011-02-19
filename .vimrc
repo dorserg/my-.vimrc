@@ -247,3 +247,6 @@ augroup END
 " always pass 'g' flag to :s command
 set gdefault
 
+" autocomplete closing tags
+imap </ </<C-X><C-O>
+
