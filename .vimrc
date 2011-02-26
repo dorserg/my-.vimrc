@@ -223,8 +223,8 @@ autocmd! bufwritepost ~/.vimrc source %
 nmap gs :Sex<CR>
 
 " replace without overwriting default register
-nmap [c "_ciw<C-R>"<ESC>
-vmap [c "_c<C-R>"<ESC>
+nmap \c "_ciw<C-R>"<ESC>
+vmap \c "_c<C-R>"<ESC>
 
 set laststatus=2
 
@@ -240,8 +240,8 @@ let Tlist_Use_Right_Window = 1
 let Tlist_Enable_Fold_Column = 0
 let Tlist_Compact_Format = 1
 
-nmap [to :TlistOpen<C-M>
-nmap [tt :TlistToggle<C-M>
+nmap \to :TlistOpen<C-M>
+nmap \tt :TlistToggle<C-M>
 
 nmap <leader>m :make<C-M>
 nmap <leader>w :w<C-M>
