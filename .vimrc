@@ -21,8 +21,8 @@ set nocompatible
 " pathogen: simple package manager
 " all plugins are in separate folders under ~/.vim/bundle
 filetype off
-call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
