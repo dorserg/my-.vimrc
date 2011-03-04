@@ -244,7 +244,7 @@ nmap \to :TlistOpen<C-M>
 nmap \tt :TlistToggle<C-M>
 
 nmap <leader>m :make<C-M>
-nmap <leader>w :w<C-M>
+nmap \w :w<C-M>
 
 augroup java_autocommands
     au!
