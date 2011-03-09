@@ -258,3 +258,6 @@ set gdefault
 " autocomplete closing tags
 imap </ </<C-X><C-O>
 
+set splitbelow
+set splitright
+
