@@ -255,9 +255,17 @@ augroup END
 " always pass 'g' flag to :s command
 set gdefault
 
-" autocomplete closing tags
-imap </ </<C-X><C-O>
+augroup html_commands
+    au!
+    au FileType html,xml inoremap <buffer> </ </<C-X><C-O>
+augroup END
 
 set splitbelow
 set splitright
+
+let g:vimwiki_folding=1
+
+" create blank newlines and stay in normal mode
+nnoremap <silent> zj o<Esc>
+nnoremap <silent> zk O<Esc>
 
