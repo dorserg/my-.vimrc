@@ -101,7 +101,7 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-set wildmode=full
+set wildmode=longest:full,full
 set wildmenu
 
 let mapleader = ","
@@ -268,4 +268,6 @@ let g:vimwiki_folding=1
 " create blank newlines and stay in normal mode
 nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
+
+let g:EasyMotion_keys = "abcdefghijklmnopqrstuvwxyz"
 
