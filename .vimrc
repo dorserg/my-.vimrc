@@ -18,6 +18,8 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+runtime! macros/matchit.vim
+
 " pathogen: simple package manager
 " all plugins are in separate folders under ~/.vim/bundle
 filetype off
@@ -270,4 +272,7 @@ nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
 
 let g:EasyMotion_keys = "abcdefghijklmnopqrstuvwxyz"
+let g:EasyMotion_leader_key = '['
+
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
